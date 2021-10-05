@@ -7,22 +7,22 @@ const SpeakerDetail = ({
     lastName,
     favorite,
     bio,
-    onHeartFavorriteHandler
+    onHeartFavoriteHandler
 }) => {
     return (
         <div className="card col-4 cardmin">
             <ImageToggleOnScroll
                 className="card-img-top"
-                primaryImg={`/stgatic/speakers/bw/Speaker-${id}.jpg`}
-                secondaryImg={`/stgatic/speakers/Speaker-${id}.jpg`}
+                primaryImg={`/static/speakers/bw/Speaker-${id}.jpg`}
+                secondaryImg={`/static/speakers/Speaker-${id}.jpg`}
                 alt={`${firstName} ${lastName}`} />
 
             <div className="card-body">
                 <h4 className="card-title">
                     <button data-sessionid={id}
-                        className={favorite ? 'heartredButton' : 'heartdarkbutton'}
+                        className={favorite ? 'heartredbutton' : 'heartdarkbutton'}
                         onClick={(e) => {
-                            onHeartFavorriteHandler(e, !favorite);
+                            onHeartFavoriteHandler(e, !favorite);
                         }}
                     />
                     <span>

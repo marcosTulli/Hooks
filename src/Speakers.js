@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext, useReducer } from "react";
+import React, { useEffect, useState, useContext, useReducer, useCallback } from "react";
 // import "../public/static/bootstrap.css"
 // import "../public/static/site.css"
 import Header from "./Header";
@@ -63,7 +63,7 @@ const Speakers = ({ }) => {
             }
             );
 
-    const heartFavoriteHandler = (e, favoriteValue) => {
+    const heartFavoriteHandler = useCallback((e, favoriteValue) => {
         e.preventDefault();
         const sessionId = parseInt(e.target.attributes["data-sessionid"].value);
 
@@ -71,17 +71,7 @@ const Speakers = ({ }) => {
             type: favoriteValue === true ? "favorite" : "unfavorite",
             sessionId: sessionId
         });
-
-
-        // setSpeakerList(
-        //     speakerListFiltered.map((item) => {
-        //         if (item.id === sessionId) {
-        //             return { ...item, favorite: favoriteValue };
-        //         }
-        //         return item;
-        //     }),
-        // );
-    };
+    }, []);
 
     if (isLoading) return <div>Loading...</div>;
 
